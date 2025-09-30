@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $heading ?? 'My Dynamic Site' }}</title> 
+    <title>{{ $heading ?? 'Cosmic Jobs' }}</title> 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Configure Tailwind to use the 'Inter' font and define custom dark colors
@@ -44,18 +44,35 @@
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 
                 <a href="/" class="text-2xl font-extrabold tracking-tight text-purple-400 hover:text-purple-300 transition duration-300 rounded-lg p-2">
-                    Cosmic_UI
+                    Cosmic_Jobs
                 </a>
                 
                 <nav class="flex space-x-4 sm:space-x-8">
-                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                    <x-nav-link href="/" :active="request()->is('/')">Dashboard</x-nav-link>
+                    <x-nav-link href="/jobs" :active="request()->is('jobs')">Find Jobs</x-nav-link>
                 </nav>
             </div>
         </header>
 
-        <div class="text-center pt-16 pb-8 bg-dark-bg/50 backdrop-blur-sm">
+        @if (request()->is('jobs') || request()->is('/'))
+            <div class="bg-dark-bg/60 p-4 shadow-2xl border-b border-purple-900/50">
+                <div class="max-w-4xl mx-auto">
+                    <form action="/jobs" method="GET" class="flex items-center space-x-3">
+                        <input 
+                            type="search" 
+                            name="q" 
+                            placeholder="Search by Title, Company, or Keyword..."
+                            class="flex-grow p-3 rounded-xl bg-gray-800 text-white border border-purple-800 focus:border-purple-500 focus:ring-purple-500 transition duration-300"
+                        >
+                        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @endif
+
+        <div class="text-center pt-10 pb-8">
             <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500">
                 {{ $heading }}
             </h1>
@@ -66,7 +83,7 @@
         </main>
         
         <footer class="p-4 text-center text-sm text-gray-500 border-t border-purple-900/50 mt-auto">
-            &copy; 2024 Dark Theme Layout. All rights reserved.
+            &copy; 2024 Cosmic Jobs. All rights reserved.
         </footer>
     </div>
 </body>

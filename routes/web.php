@@ -1,15 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Job; // Import the new Job Model
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/about', function () {
-    return view('about');
+// All Jobs - Now uses the Model
+Route::get('/jobs', function () {
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
 });
 
-Route::get('/contact', function () {
-    return view('contact');
+// Single Job - Now uses the Model
+Route::get('/jobs/{id}', function ($id) {
+    return view('job', [
+        'job' => Job::find($id)
+    ]);
 });
