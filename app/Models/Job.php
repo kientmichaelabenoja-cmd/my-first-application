@@ -18,6 +18,13 @@ class Job extends Model
     // GOOD ADDITION: Defines the relationship to the Employer Model (needed for later chapters)
     public function employer()
     {
-        return $this->belongsTo(Employer::class);
+        return $this->belongsTo(\App\Models\Employer::class);
     }
+
+    // Defines the many-to-many relationship with tags
+    public function tags()
+{
+    // Tells Eloquent to use job_listing_tag table and job_listing_id as the key
+    return $this->belongsToMany(\App\Models\Tag::class, 'job_listing_tag', foreignPivotKey: "job_listing_id"); 
+}
 }

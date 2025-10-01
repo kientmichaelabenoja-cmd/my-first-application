@@ -8,6 +8,8 @@
         @foreach ($jobs as $job)
             <div class="p-6 rounded-xl bg-gray-900 border border-purple-900/50 hover:border-purple-500/80 transition duration-300 transform hover:scale-[1.02] shadow-xl">
                 <a href="/jobs/{{ $job['id'] }}" class="block">
+                    <p class="text-sm font-bold text-purple-600 mb-3">{{ $job->employer->name }}</p>
+
                     <h2 class="text-xl font-bold text-purple-300 mb-2 hover:text-purple-100 transition duration-300">
                         {{ $job['title'] }}
                     </h2>
@@ -17,7 +19,7 @@
                     </p>
                     
                     <div class="mt-4 flex justify-between items-center">
-                        <span class="text-xs bg-deep-violet/70 text-purple-300 px-3 py-1 rounded-full font-medium">Remote</span>
+                        <span class="text-xs bg-deep-violet/70 text-purple-300 px-3 py-1 rounded-full font-medium">Full-Time</span>
                         <span class="text-sm text-gray-500">View Details &rarr;</span>
                     </div>
                 </a>

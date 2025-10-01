@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory; // [cite: 67]
-use Illuminate\Database\Eloquent\Model; // [cite: 68]
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Employer extends Model // [cite: 69]
+class Employer extends Model
 {
-    use HasFactory; // [cite: 71]
+    use HasFactory;
+
+    // Defines the one-to-many relationship
+    public function jobs()
+    {
+        return $this->hasMany(\App\Models\Job::class);
+    }
 }
