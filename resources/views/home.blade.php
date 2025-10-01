@@ -10,7 +10,7 @@
         
         <div class="pt-4">
             <a href="/jobs" class="inline-block px-10 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full shadow-lg transition duration-300 hover:bg-purple-700 hover:shadow-xl transform hover:scale-105">
-                Browse All {{ count(\App\Models\Job::all()) }} Listings
+                Browse All {{ \App\Models\Job::count() }} Listings
             </a>
         </div>
     </div>

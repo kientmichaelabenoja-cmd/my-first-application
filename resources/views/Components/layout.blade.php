@@ -83,7 +83,7 @@
         </main>
         
         <footer class="p-4 text-center text-sm text-gray-500 border-t border-purple-900/50 mt-auto">
-            &copy; 2024 Cosmic Jobs. All rights reserved.
+            &copy; 2025 Cosmic Jobs. All rights reserved.
         </footer>
     </div>
 </body>
